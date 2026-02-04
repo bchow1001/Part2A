@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"uri": "vscode-remote://codespaces+fuzzy-zebra-q77xjrvqjr5p39xpq/workspaces/Part2A"
+		}
+	],
+	"remoteAuthority": "codespaces+fuzzy-zebra-q77xjrvqjr5p39xpq",
+	"settings": {
+		"python-envs.defaultEnvManager": "ms-python.python:system"
+	}
+}
