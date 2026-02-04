@@ -1,4 +1,5 @@
 # Part2A
+
 1. How to use Heap Sort (n \log n)This algorithm is used whenever you have a "messy" list of numbers and you want to put them in order from smallest to largest.The Steps:
 - Copy the Code: Paste the heap_sort and heapify functions into your Python file.
 -Create a List: Define a variable containing a list of numbers you want to sort.
@@ -14,8 +15,8 @@ heap_sort(my_numbers)
 # 3. See the result
 print("My Sorted Numbers:", my_numbers)
 # Output: [0, 2, 7, 12, 45, 89]
-
 What's happening? When you call heap_sort, the code first rearranges your list into a "Heap" (a tree where the biggest number is at the top). It then swaps that biggest number to the end of the list and repeats the process until everything is sorted.
+
 
 2. How to use Towers of Hanoi (O(2^n))This code doesn't "sort" data; instead, it provides you with a step-by-step instruction manual on how to solve the classic puzzle.
 The Steps:
