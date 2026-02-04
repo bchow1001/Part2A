@@ -1,53 +1,39 @@
-import time
-import random
-
 def heapify(arr, n, i):
+    """
+    Maintains the max-heap property.
+    n: size of the heap
+    i: index of the current root node
+    """
     largest = i  # Initialize largest as root
-    l = 2 * i + 1  # left = 2*i + 1
-    r = 2 * i + 2  # right = 2*i + 2
+    left = 2 * i + 1
+    right = 2 * i + 2
 
-    # See if left child of root exists and is greater than root
-    if l < n and arr[l] > arr[largest]:
-        largest = l
+    # Check if left child exists and is greater than root
+    if left < n and arr[left] > arr[largest]:
+        largest = left
 
-    # See if right child of root exists and is greater than root
-    if r < n and arr[r] > arr[largest]:
-        largest = r
+    # Check if right child exists and is greater than current largest
+    if right < n and arr[right] > arr[largest]:
+        largest = right
 
-    # Change root, if needed
+    # If largest is not root, swap and continue heapifying
     if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]  # swap
-        # Heapify the root.
+        arr[i], arr[largest] = arr[largest], arr[i]
         heapify(arr, n, largest)
 
 def heap_sort(arr):
     n = len(arr)
 
-    # Build a maxheap.
+    # Step 1: Build a maxheap (rearrange array)
     for i in range(n // 2 - 1, -1, -1):
         heapify(arr, n, i)
 
-    # One by one extract elements
-    for i in range(n - 1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]  # swap
-        heapify(arr, i, 0)
-def test_heap_sort():
-    # Test Cases
-    test_cases = {
-        "Random List": [random.randint(0, 100) for _ in range(10)],
-        "Already Sorted": [1, 2, 3, 4, 5],
-        "Reverse Sorted": [5, 4, 3, 2, 1],
-        "Empty List": [],
-        "Single Element": [42]
-    }
+    # Step 2: Extract elements one by one
+    for i in range(n-1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i] # Swap root with end
+        heapify(arr, i, 0) # Heapify the reduced heap
 
-    print("--- Heap Sort Functional Testing ---")
-    for name, data in test_cases.items():
-        original = data.copy()
-        heap_sort(data)
-        success = (data == sorted(original))
-        print(f"{name:15}: {'PASSED' if success else 'FAILED'} | Result: {data}")
-
-# Run Test
-test_heap_sort()
-print("Try programiz.pro")
+# Example Usage
+data = [12, 11, 13, 5, 6, 7]
+heap_sort(data)
+print("Sorted array (Heap Sort):", data)
